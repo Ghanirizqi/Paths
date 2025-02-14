@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Special</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-
-    <title>Interactive Yes/No Buttons</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 <body>
     <div class="container">
-        <div class="question">Do you like me?</div>
-        <div class="buttons">
-            <button class="btn" id="yesBtn">Yes</button>
-            <button class="btn size-1" id="noBtn">No</button>
+        <div class="hearts"></div>
+        <div class="valentine-card">
+            <h1 class="question">Will you be my Valentine? 🌹</h1>
+            <div class="buttons">
+                <button class="btn yes-btn" id="yesBtn">Yes! 💖</button>
+                <button class="btn no-btn" id="noBtn">Maybe... 😅</button>
+            </div>
+            <div class="success-message">
+                <h2 class="animated-text">You just made my day! 🥰</h2>
+                <div class="heart-pulse">💗</div>
+            </div>
         </div>
-        <div class="success-message">I knew it! 😊</div>
     </div>
-
+    <script src="script.js"></script>
 </body>
 </html>
