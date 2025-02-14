@@ -7,32 +7,20 @@ const question = document.querySelector('.question');
 
 let noCount = 1;
 
-noBtn.addEventListener('mouseenter', () => {
-    noBtn.style.transform = 'scale(1.1)';
-});
-
-noBtn.addEventListener('mouseleave', () => {
-    noBtn.style.transform = 'scale(1)';
-});
-
 noBtn.addEventListener('click', () => {
     noCount++;
+
     if (noCount <= 10) {
-        // Remove previous size class
-        for (let i = 1; i <= 10; i++) {
-            noBtn.classList.remove(`size-${i}`);
-        }
-        // Add new size class
-        noBtn.classList.add(`size-${noCount}`);
+        noBtn.style.fontSize = `${1 + noCount * 0.2}rem`;
     }
 
-    // Batasi pergerakan dalam container
+    // Batas gerakan dalam container
     const containerRect = container.getBoundingClientRect();
     const btnRect = noBtn.getBoundingClientRect();
 
     const maxX = containerRect.width - btnRect.width;
     const maxY = containerRect.height - btnRect.height;
-    
+
     const randomX = Math.random() * maxX;
     const randomY = Math.random() * maxY;
 
