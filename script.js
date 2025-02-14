@@ -1,6 +1,6 @@
 const noBtn = document.getElementById('noBtn');
 const yesBtn = document.getElementById('yesBtn');
-const container = document.querySelector('.container');
+const container = document.querySelector('.valentine-card');
 const successMessage = document.querySelector('.success-message');
 const buttons = document.querySelector('.buttons');
 const question = document.querySelector('.question');
@@ -14,12 +14,12 @@ noBtn.addEventListener('click', () => {
         noBtn.style.fontSize = `${1 + noCount * 0.2}rem`;
     }
 
-    // Batas gerakan dalam container
+    // Ambil ukuran container & tombol
     const containerRect = container.getBoundingClientRect();
     const btnRect = noBtn.getBoundingClientRect();
 
-    const maxX = containerRect.width - btnRect.width;
-    const maxY = containerRect.height - btnRect.height;
+    const maxX = Math.min(containerRect.width - btnRect.width, 200);
+    const maxY = Math.min(containerRect.height - btnRect.height, 100);
 
     const randomX = Math.random() * maxX;
     const randomY = Math.random() * maxY;
@@ -30,10 +30,7 @@ noBtn.addEventListener('click', () => {
 });
 
 yesBtn.addEventListener('click', () => {
-    // Hide question and buttons
     buttons.style.display = 'none';
     question.style.display = 'none';
-    
-    // Show success message
     successMessage.style.display = 'block';
 });
