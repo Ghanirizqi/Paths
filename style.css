@@ -106,6 +106,10 @@ body {
     }
 
     .heart-pulse {
-        font-size: 2.5rem;
+        width: 60px; /* Sesuaikan ukuran gambar */
+        height: auto;
+        margin-top: 1rem;
+        animation: pulse 1.5s infinite;
     }
+    
 }
