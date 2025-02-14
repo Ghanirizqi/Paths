@@ -1,88 +1,50 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const loveMessages = [
-        "You're my sunshine on a cloudy day! ☀️",
-        "Every moment with you is magical! ✨",
-        "You make my heart skip a beat! 💓",
-        "You're the sweetest valentine! 🍫",
-        "Together forever! 💑",
-        "You complete me! 💖"
-    ];
+const noBtn = document.getElementById('noBtn');
+const yesBtn = document.getElementById('yesBtn');
+const container = document.querySelector('.container');
+const successMessage = document.querySelector('.success-message');
+const buttons = document.querySelector('.buttons');
+const question = document.querySelector('.question');
 
-    let counter = 0;
-    const counterElement = document.getElementById('loveCounter');
-    const messageBox = document.getElementById('message');
-    const loveBtn = document.getElementById('loveBtn');
-    const heartItems = document.querySelectorAll('.heart-item');
-    const musicToggle = document.getElementById('musicToggle');
+let noCount = 1;
+
+noBtn.addEventListener('mouseenter', () => {
+    noBtn.style.transform = 'scale(1.1)';
+});
+
+noBtn.addEventListener('mouseleave', () => {
+    noBtn.style.transform = 'scale(1)';
+});
+
+noBtn.addEventListener('click', () => {
+    noCount++;
+    if (noCount <= 10) {
+        // Remove previous size class
+        for (let i = 1; i <= 10; i++) {
+            noBtn.classList.remove(`size-${i}`);
+        }
+        // Add new size class
+        noBtn.classList.add(`size-${noCount}`);
+    }
+
+    // Random position when clicking No
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
     
-    // Create floating hearts
-    function createFloatingHearts() {
-        const heartsContainer = document.querySelector('.floating-hearts');
-        const heart = document.createElement('div');
-        heart.className = 'heart';
-        heart.innerHTML = '❤️';
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.animationDuration = Math.random() * 3 + 2 + 's';
-        heart.style.fontSize = Math.random() * 20 + 10 + 'px';
-        heartsContainer.appendChild(heart);
-        setTimeout(() => heart.remove(), 5000);
-    }
+    noBtn.style.position = 'fixed';
+    noBtn.style.left = randomX + 'px';
+    noBtn.style.top = randomY + 'px';
+});
 
-    // Create sparkle effect
-    function createSparkle(x, y) {
-        const sparkle = document.createElement('div');
-        sparkle.className = 'sparkle';
-        sparkle.innerHTML = '✨';
-        sparkle.style.left = x + 'px';
-        sparkle.style.top = y + 'px';
-        document.body.appendChild(sparkle);
-        setTimeout(() => sparkle.remove(), 1500);
-    }
+yesBtn.addEventListener('click', () => {
+    // Hide question and buttons
+    buttons.style.display = 'none';
+    question.style.display = 'none';
+    
+    // Show success message
+    successMessage.style.display = 'block';
 
-    // Event listeners
-    loveBtn.addEventListener('click', () => {
-        counter++;
-        counterElement.textContent = counter;
-        messageBox.textContent = loveMessages[Math.floor(Math.random() * loveMessages.length)];
-        
-        confetti({
-            particleCount: 100,
-            spread: 70,
-            origin: { y: 0.6 },
-            colors: ['#ff4b6e', '#ff8fa3', '#ffc0cb']
-        });
-    });
-
-    heartItems.forEach(heart => {
-        heart.addEventListener('click', (e) => {
-            const rect = heart.getBoundingClientRect();
-            createSparkle(rect.left + rect.width/2, rect.top + rect.height/2);
-            heart.style.transform = 'scale(1.2) rotate(20deg)';
-            setTimeout(() => heart.style.transform = '', 500);
-        });
-    });
-
-    // Start floating hearts
-    setInterval(createFloatingHearts, 300);
-
-    // Hover effect on cards
-    document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const xc = rect.width/2;
-            const yc = rect.height/2;
-            
-            const dx = x - xc;
-            const dy = y - yc;
-            
-            card.style.transform = `rotateY(${dx/10}deg) rotateX(${-dy/10}deg) translateY(-10px)`;
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = '';
-        });
-    });
+    // Optional: Add confetti or other celebration effects here
+    // You could add a confetti library for extra effects
 });

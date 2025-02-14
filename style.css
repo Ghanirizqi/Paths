@@ -1,167 +1,89 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-    font-family: 'Dancing Script', cursive;
-    overflow-x: hidden;
-}
-
-.main-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.card {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-}
-
-.main-title {
-    text-align: center;
-    font-size: 4rem;
-    color: #ff4b6e;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    margin: 2rem 0;
-    animation: float 3s ease-in-out infinite;
-}
-
-.love-quote {
-    font-size: 1.8rem;
-    color: #ff6b8b;
-    text-align: center;
-    margin: 1rem 0;
-}
-
-.heart-gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin: 2rem 0;
-}
-
-.heart-item {
-    aspect-ratio: 1;
-    background: #ff4b6e;
-    border-radius: 50%;
+    margin: 0;
+    height: 100vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    font-size: 2rem;
-    color: white;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+    align-items: center;
+    background: linear-gradient(135deg, #ffd1dc, #e6e6fa);
+    font-family: Arial, sans-serif;
 }
 
-.heart-item:hover {
-    transform: scale(1.1) rotate(10deg);
-}
-
-.message-box {
-    background: #fff;
-    padding: 1.5rem;
-    border-radius: 15px;
-    margin: 1rem 0;
+.container {
     text-align: center;
-    min-height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: #ff4b6e;
 }
 
-.love-button {
-    background: linear-gradient(45deg, #ff4b6e, #ff8fa3);
-    color: white;
+.question {
+    font-size: 2em;
+    color: #663399;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 50px;
+    font-size: 1.2em;
     border: none;
-    padding: 1rem 2rem;
-    font-size: 1.5rem;
-    border-radius: 30px;
+    border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: 'Dancing Script', cursive;
-    display: block;
-    margin: 2rem auto;
-    box-shadow: 0 4px 15px rgba(255, 75, 110, 0.4);
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.love-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(255, 75, 110, 0.6);
+.btn:hover {
+    transform: scale(1.1);
 }
 
-.floating-hearts {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1000;
+#yesBtn {
+    background-color: #4CAF50;
 }
 
-.heart {
-    position: absolute;
-    animation: float-heart linear infinite;
+#yesBtn:hover {
+    background-color: #45a049;
 }
 
-@keyframes float-heart {
-    to {
-        transform: translateY(-100vh) rotate(360deg);
+#noBtn {
+    background-color: #ff4444;
+}
+
+#noBtn:hover {
+    background-color: #cc0000;
+}
+
+.success-message {
+    display: none;
+    font-size: 3em;
+    color: #663399;
+    animation: bounce 1s infinite;
+    font-weight: bold;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
     }
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
-
-.music-player {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: white;
-    padding: 1rem;
-    border-radius: 50%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    z-index: 1001;
-}
-
-.sparkle {
-    position: absolute;
-    pointer-events: none;
-    animation: sparkle 1.5s linear forwards;
-}
-
-@keyframes sparkle {
-    0% { transform: scale(0) rotate(0deg); opacity: 1; }
-    100% { transform: scale(1) rotate(180deg); opacity: 0; }
-}
-
-@media (max-width: 768px) {
-    .main-title {
-        font-size: 3rem;
-    }
-    .love-quote {
-        font-size: 1.5rem;
-    }
-}
+/* Initial size for No button */
+.size-1 { font-size: 1.2em; }
+.size-2 { font-size: 1.5em; }
+.size-3 { font-size: 1.8em; }
+.size-4 { font-size: 2.1em; }
+.size-5 { font-size: 2.4em; }
+.size-6 { font-size: 2.7em; }
+.size-7 { font-size: 3.0em; }
+.size-8 { font-size: 3.3em; }
+.size-9 { font-size: 3.6em; }
+.size-10 { font-size: 3.9em; }
