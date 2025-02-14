@@ -56,11 +56,10 @@ body {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: 'Inter', sans-serif; /* Modern dan bersih */
+    font-family: 'Inter', sans-serif;
     font-weight: bold;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transform: scale(1);
-    position: relative;
 }
 
 .yes-btn {
@@ -75,19 +74,13 @@ body {
 }
 
 /* Success Message */
-.success-message {
+.lyrics {
     display: none;
-    margin-top: 1.5rem;
 }
 
 .animated-text {
     font-size: 2rem;
     color: #ff3f3f;
-}
-
-.heart-pulse {
-    font-size: 3rem;
-    margin-top: 1rem;
 }
 
 /* Responsive */
@@ -101,15 +94,7 @@ body {
         padding: 0.8rem 1.5rem;
     }
 
-    .success-message {
+    .animated-text {
         font-size: 1.5rem;
     }
-
-    .heart-pulse {
-        width: 60px; /* Sesuaikan ukuran gambar */
-        height: auto;
-        margin-top: 1rem;
-        animation: pulse 1.5s infinite;
-    }
-    
 }
