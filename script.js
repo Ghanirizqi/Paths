@@ -34,3 +34,32 @@ yesBtn.addEventListener('click', () => {
     question.style.display = 'none';
     successMessage.style.display = 'block';
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const yesBtn = document.getElementById("yesBtn");
+    const successMessage = document.querySelector(".success-message");
+
+    yesBtn.addEventListener("click", () => {
+        // Sembunyikan tombol dan pertanyaan
+        document.querySelector(".buttons").style.display = "none";
+        document.querySelector(".question").style.display = "none";
+
+        // Tampilkan pesan sukses
+        successMessage.style.display = "block";
+
+        // Efek confetti selama 3 detik
+        const duration = 3 * 1000;
+        const end = Date.now() + duration;
+
+        (function frame() {
+            confetti({
+                particleCount: 5,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+        })();
+    });
+});
