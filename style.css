@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #ff9aa2, #ff6b6b, #ff3f3f);
+    font-family: 'Pacifico', cursive;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.valentine-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem 4rem;
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(255, 65, 108, 0.5);
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    position: relative;
+    z-index: 2;
+}
+
+.animated-text {
+    color: #ff3f3f;
+    font-size: 3rem;
+    margin: 1rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: float 3s ease-in-out infinite;
+}
+
+.heart-container {
+    width: 100px;
+    height: 100px;
+    margin: 2rem auto;
+    animation: heartbeat 1.5s infinite;
+}
+
+.heart-container::before,
+.heart-container::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    background: #ff3f3f;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    box-shadow: 0 0 20px rgba(255, 63, 63, 0.5);
+}
+
+.heart-container::after {
+    left: 30px;
+    transform: rotate(45deg);
+}
+
+.love-button {
+    background: #ff3f3f;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Pacifico', cursive;
+    box-shadow: 0 4px 15px rgba(255, 63, 63, 0.4);
+}
+
+.love-button:hover {
+    transform: scale(1.1);
+    background: #ff6b6b;
+    box-shadow: 0 6px 20px rgba(255, 63, 63, 0.6);
+}
+
+.message-container {
+    margin: 2rem 0;
+    min-height: 100px;
+}
+
+.love-message {
+    font-size: 1.5rem;
+    color: #ff3f3f;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.hearts {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    15% { transform: scale(1.3); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.15); }
+    60% { transform: scale(1); }
+}
+
+/* Tambahkan heart particles */
+.heart {
+    position: absolute;
+    color: #ff3f3f;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
