@@ -26,15 +26,19 @@ noBtn.addEventListener('click', () => {
         noBtn.classList.add(`size-${noCount}`);
     }
 
-    // Random position when clicking No
-    const maxX = window.innerWidth - noBtn.offsetWidth;
-    const maxY = window.innerHeight - noBtn.offsetHeight;
+    // Batasi pergerakan dalam container
+    const containerRect = container.getBoundingClientRect();
+    const btnRect = noBtn.getBoundingClientRect();
+
+    const maxX = containerRect.width - btnRect.width;
+    const maxY = containerRect.height - btnRect.height;
+    
     const randomX = Math.random() * maxX;
     const randomY = Math.random() * maxY;
-    
-    noBtn.style.position = 'fixed';
-    noBtn.style.left = randomX + 'px';
-    noBtn.style.top = randomY + 'px';
+
+    noBtn.style.position = 'absolute';
+    noBtn.style.left = `${randomX}px`;
+    noBtn.style.top = `${randomY}px`;
 });
 
 yesBtn.addEventListener('click', () => {
@@ -44,7 +48,4 @@ yesBtn.addEventListener('click', () => {
     
     // Show success message
     successMessage.style.display = 'block';
-
-    // Optional: Add confetti or other celebration effects here
-    // You could add a confetti library for extra effects
 });
