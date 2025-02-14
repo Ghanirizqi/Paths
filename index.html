@@ -4,21 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Valentine's Day!</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.5.1/confetti.browser.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="hearts"></div>
-        <div class="valentine-card">
-            <h1 class="animated-text">Happy Valentine's Day! 💖</h1>
-            <div class="heart-container"></div>
-            <button class="love-button">Click for Love! 💘</button>
-            <div class="message-container">
-                <p class="love-message"></p>
+    <h1 class="main-title">Happy Valentine's Day! 💖</h1>
+    
+    <div class="main-container">
+        <div class="card">
+            <p class="love-quote">Love is in the air! 🌹</p>
+            <div class="heart-gallery">
+                <div class="heart-item">💝</div>
+                <div class="heart-item">💖</div>
+                <div class="heart-item">💗</div>
+                <div class="heart-item">💓</div>
+                <div class="heart-item">💕</div>
+                <div class="heart-item">💞</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="message-box" id="message">Click the button for a sweet surprise!</div>
+            <button class="love-button" id="loveBtn">Spread the Love! 💘</button>
+        </div>
+
+        <div class="card">
+            <p class="love-quote">Count the ways I love you...</p>
+            <div id="loveCounter" style="text-align: center; font-size: 3rem; margin: 2rem 0; color: #ff4b6e;">
+                0
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <div class="floating-hearts"></div>
+    <div class="music-player" id="musicToggle">🎵</div>
+
 </body>
 </html>
