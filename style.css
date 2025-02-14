@@ -98,3 +98,19 @@ body {
         font-size: 1.5rem;
     }
 }
+.lyrics {
+    display: none;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.glowing-text {
+    color: #ff3f3f;
+    text-shadow: 0 0 10px rgba(255, 63, 63, 0.8), 
+                 0 0 20px rgba(255, 63, 63, 0.6), 
+                 0 0 30px rgba(255, 63, 63, 0.4);
+    transition: text-shadow 0.3s ease-in-out;
+}
+
