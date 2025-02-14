@@ -43,14 +43,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     song.addEventListener("timeupdate", () => {
-        if (song.currentTime >= 139 && song.currentTime < 145) { // 2:19 - 2:25
-            lyricLine.textContent = "Oh, my love\nIs this the end for us?\nMaybe we've had enough";
-            lyricLine.style.color = "#ff3f3f";
-            lyricLine.style.textShadow = "0 0 10px rgba(255, 63, 63, 0.8)";
+        if (song.currentTime >= 139 && song.currentTime < 141) {
+            lyricLine.textContent = "Oh, my love";
+            lyricLine.classList.add("glowing-text");
+        } else if (song.currentTime >= 141 && song.currentTime < 143) {
+            lyricLine.textContent = "Is this the end for us?";
+            lyricLine.classList.add("glowing-text");
+        } else if (song.currentTime >= 143 && song.currentTime < 145) {
+            lyricLine.textContent = "Maybe we've had enough";
+            lyricLine.classList.add("glowing-text");
         } else {
             lyricLine.textContent = "";
-            lyricLine.style.color = "";
-            lyricLine.style.textShadow = "";
+            lyricLine.classList.remove("glowing-text");
         }
     });
 });
